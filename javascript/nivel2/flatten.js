@@ -1,26 +1,31 @@
 /**
- * @param {Array} arr
+ * @param {Array} array
  */
 
-function flatten(arr) {
-  let a = [];
-  for (i of arr) {
-    if (typeof i == "object") {
-      o = i;
-      for (n of o) {
-        a.push(n);
+function flatten(array) {
+  let flattened = [];
+  for (element of array) {
+    if (typeof element == "object") {
+      supposed_array = element;
+      for (element of supposed_array) {
+        flattened.push(element);
       }
     } else {
-      a.push(i);
+      flattened.push(element);
     }
   }
 
-  return a;
+  return flattened;
 }
 
 function main() {
   console.log(flatten([1, [2, 3], 4]));
-  console.log(flatten([[1, 2], [3, 4]]	));
+  console.log(
+    flatten([
+      [1, 2],
+      [3, 4],
+    ])
+  );
   console.log(flatten([1, 2, 3]));
   console.log(flatten([[]]));
   console.log(flatten([1, [2, [3]]]));

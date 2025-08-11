@@ -1,18 +1,19 @@
 /**
- * @param {Object[]} arr
- * @param {string} propriedade
+ * @param {Array} array
+ * @param {string} property
  */
 
-function agruparPorPropriedade(arr, propriedade) {
+function groupByProperty(array, property) {
   const map = new Map();
-  for (const i of arr) {
-    if (!map.get(i[propriedade])) {
-      map.set(i[propriedade], i);
+
+  for (const element of array) {
+    if (!map.get(element[property])) {
+      map.set(element[property], element);
     } else {
-      let a = [];
-      a.push(map.get(i[propriedade])).p;
-      a.push(i);
-      map.set(i[propriedade], a);
+      let arr = [];
+      arr.push(map.get(element[property]));
+      arr.push(element);
+      map.set(element[property], arr);
     }
   }
 
@@ -21,7 +22,7 @@ function agruparPorPropriedade(arr, propriedade) {
 
 function main() {
   console.log(
-    agruparPorPropriedade(
+    groupByProperty(
       [
         { tipo: "A", valor: 1 },
         { tipo: "B", valor: 2 },
@@ -31,15 +32,15 @@ function main() {
     )
   );
   console.log(
-    agruparPorPropriedade(
+    groupByProperty(
       [{ cor: "azul" }, { cor: "vermelho" }, { cor: "azul" }],
       "cor"
     )
   );
-  console.log(agruparPorPropriedade([], "x"));
-  console.log(agruparPorPropriedade([{ id: 1 }, { id: 2 }], "id"));
+  console.log(groupByProperty([], "x"));
+  console.log(groupByProperty([{ id: 1 }, { id: 2 }], "id"));
   console.log(
-    agruparPorPropriedade(
+    groupByProperty(
       [{ grupo: "g1" }, { grupo: "g2" }, { grupo: "g1" }, { grupo: "g2" }],
       "grupo"
     )
