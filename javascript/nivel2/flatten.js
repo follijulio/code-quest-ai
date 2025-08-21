@@ -5,7 +5,7 @@
 function flatten(array) {
   let flattened = [];
   for (element of array) {
-    if (typeof element == "object") {
+    if (Array.isArray(element)) {
       supposed_array = element;
       for (element of supposed_array) {
         flattened.push(element);

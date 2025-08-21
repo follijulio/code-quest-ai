@@ -22,6 +22,7 @@ function naoInterseccao(A, B) {
 }
 function main() {
   console.log(naoInterseccao([1, 2, 3, 3], [3, 4, 9, 8, 9, 6]));
+  console.log(naoInterseccao([1, 2, 3, 3], [1, 2, 2, 3, 3]));
 }
 
 main();
